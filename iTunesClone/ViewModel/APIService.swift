@@ -20,6 +20,16 @@ class APIService {
         fetch(type: MovieResult.self, url: url, completion: completion)
     }
     
+    func fetchSongs(for albumID: Int, completion: @escaping(Result<SongResult, APIError>) -> Void){
+        let url = createURL(for: albumID, type: .song)
+        fetch(type: SongResult.self, url: url, completion: completion)
+    }
+    
+    func fetchSongs(searchTerm : String, page: Int, limit: Int, completion: @escaping(Result<SongResult, APIError>) -> Void){
+        let url = createURL(for: searchTerm, type: .song, page: page, limit: limit)
+        fetch(type: SongResult.self, url: url, completion: completion)
+    }
+    
     func fetch<T: Decodable>(type: T.Type, url: URL?, completion: @escaping(Result<T,APIError>) -> Void) {
         
         guard let url = url else {
