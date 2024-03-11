@@ -15,9 +15,10 @@ struct SearchAllListView: View {
     
     var body: some View {
         ScrollView {
-            LazyVStack(spacing: 5){
+            LazyVStack(spacing: 5) {
+                
                 if songListViewModel.songs.count > 0 {
-                    SelectionHeaderView(title: "Songs") {
+                    SectionHeaderView(title: "Songs") {
                         SongListView(viewModel: songListViewModel)
                     }
                     .padding(.top)
@@ -27,57 +28,55 @@ struct SearchAllListView: View {
                     Divider()
                         .padding(.bottom)
                 }
-                
+                                
                 if albumListViewModel.albums.count > 0 {
-                    SelectionHeaderView(title: "Albums") {
+                    SectionHeaderView(title: "Albums") {
                         AlbumListView(viewModel: albumListViewModel)
                     }
-                                    
+                    
                     AlbumSectionView(albums: albumListViewModel.albums)
                     
                     Divider()
                         .padding(.bottom)
                 }
+                
                 if movieListViewModel.movies.count > 0 {
-                    SelectionHeaderView(title: "Movies") {
+                    SectionHeaderView(title: "Movies") {
                         MovieListView(viewModel: movieListViewModel)
                     }
                     
                     MovieSectionView(movies: movieListViewModel.movies)
-                    
-                    Divider()
-                        .padding(.bottom)
                 }
             }
         }
     }
+}
+
+
+struct SectionHeaderView<Destination>: View where Destination : View {
     
-    struct SelectionHeaderView<Destination>: View where Destination: View {
-        let title: String
-        let destination: ()-> Destination
-        
-        init(title: String, @ViewBuilder destination: @escaping () -> Destination) {
-            self.title = title
-            self.destination = destination
-        }
-        
-        var body: some View {
-            HStack {
-                Text(title)
-                    .font(.title2)
-                
-                Spacer()
-                
-                NavigationLink(destination: destination){
-                    HStack {
-                        Text("See all")
-                        
-                        Image(systemName: "chevron.right")
-                    }
+    let title: String
+    let destination:  () -> Destination
+    
+    init(title: String, @ViewBuilder destination: @escaping () -> Destination) {
+        self.title = title
+        self.destination = destination
+    }
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.title2)
+            Spacer()
+            
+            NavigationLink(destination: destination) {
+                HStack {
+                    Text("See all")
+                    Image(systemName: "chevron.right")
                 }
             }
-            .padding(.horizontal)
         }
+        .padding(.horizontal)
     }
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
+    
     @State private var searchTerm: String = ""
     @State private var selectedEntityType = EntityType.all
     
@@ -23,61 +24,74 @@ struct SearchView: View {
                         Text(type.name())
                             .tag(type)
                     }
+                    
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
-                
+            
                 Divider()
                 
                 if searchTerm.count == 0 {
+                    
                     SearchPlaceholderView(searchTerm: $searchTerm)
                         .frame(maxHeight: .infinity)
-                }
-                else {
+                    
+                } else {
+                    
                     switch selectedEntityType {
-                    case .all:
-                        SearchAllListView(albumListViewModel: albumListViewModel, songListViewModel: songListViewModel, movieListViewModel: movieListViewModel)
-                            .onAppear{
+                        case .all:
+                            SearchAllListView(albumListViewModel: albumListViewModel,
+                                              songListViewModel: songListViewModel,
+                                              movieListViewModel: movieListViewModel)
+                            .onAppear {
                                 albumListViewModel.searchTerm = searchTerm
                                 songListViewModel.searchTerm = searchTerm
                                 movieListViewModel.searchTerm = searchTerm
                             }
-                    case .album:
-                        AlbumListView(viewModel: albumListViewModel)
-                            .onAppear{
-                                albumListViewModel.searchTerm = searchTerm
-                            }
-                    case .song:
-                        AlbumListView(viewModel: albumListViewModel)
-                            .onAppear{
-                                albumListViewModel.searchTerm = searchTerm
-                            }
-                    case .movie:
-                        MovieListView(viewModel: movieListViewModel)
-                            .onAppear{
-                                movieListViewModel.searchTerm = searchTerm
-                            }
+                            
+                        case .album:
+                            AlbumListView(viewModel: albumListViewModel)
+                                .onAppear {
+                                    albumListViewModel.searchTerm = searchTerm
+                                }
+                        case .song:
+                            SongListView(viewModel: songListViewModel)
+                                .onAppear {
+                                    songListViewModel.searchTerm = searchTerm
+                                }
+                        case .movie:
+                            MovieListView(viewModel: movieListViewModel)
+                                .onAppear {
+                                    movieListViewModel.searchTerm = searchTerm
+                                }
                     }
                 }
+
             }
             .searchable(text: $searchTerm)
             .navigationTitle("Search")
-//            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
         .onChange(of: searchTerm) { newValue in
+            
             switch selectedEntityType {
-            case .all:
-                albumListViewModel.searchTerm = newValue
-                songListViewModel.searchTerm = newValue
-                movieListViewModel.searchTerm = newValue
-            case .album:
-                albumListViewModel.searchTerm = newValue
-            case .song:
-                songListViewModel.searchTerm = newValue
-            case .movie:
-                movieListViewModel.searchTerm = newValue
+                case .all:
+                    albumListViewModel.searchTerm = newValue
+                    songListViewModel.searchTerm = newValue
+                    movieListViewModel.searchTerm = newValue
+                    
+                case .album:
+                    albumListViewModel.searchTerm = newValue
+                    
+                case .song:
+                    songListViewModel.searchTerm = newValue
+                    
+                case .movie:
+                    movieListViewModel.searchTerm = newValue
             }
         }
+        
     }
 }
 

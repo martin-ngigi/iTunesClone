@@ -16,7 +16,7 @@ struct AlbumSectionView: View {
             LazyHStack(alignment: .top){
                 ForEach(albums) { album in
                     NavigationLink{
-                        Text("Album detail.")
+                        AlbumDetailView(album: album)
                     } label: {
                         AlbumColumnView(album: album)
                     }

@@ -15,7 +15,7 @@ struct SongListView: View {
         List{
             ForEach(viewModel.songs) { song in
                 NavigationLink{
-                    SongRowView(song: song)
+                    SongDetailView(song: song)
                 } label: {
                     SongRowView(song: song)
                 }
