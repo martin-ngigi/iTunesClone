@@ -3,3 +3,4 @@
 <img src="Screenshots/AlbumsList.png" width="128"/>
 <img src="Screenshots/MoviesList.png" width="128"/>
 <img src="Screenshots/SearchAll.png" width="128"/>
+<img src="Screenshots/SongDetails.png" width="128"/>

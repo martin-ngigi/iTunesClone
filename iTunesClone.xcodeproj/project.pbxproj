@@ -48,6 +48,7 @@
 		A3E0A4D92B9EC2BB00FEBE24 /* AlbumForSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E0A4D82B9EC2BB00FEBE24 /* AlbumForSongViewModel.swift */; };
 		A3E0A4DB2B9EC4D100FEBE24 /* AlbumDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E0A4DA2B9EC4D100FEBE24 /* AlbumDetailView.swift */; };
 		A3E0A4DD2B9ECA5400FEBE24 /* SongsForAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E0A4DC2B9ECA5400FEBE24 /* SongsForAlbumListView.swift */; };
+		A3E0A4DF2B9EE7A200FEBE24 /* SongDetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E0A4DE2B9EE7A200FEBE24 /* SongDetails.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		A3E0A4D82B9EC2BB00FEBE24 /* AlbumForSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForSongViewModel.swift; sourceTree = "<group>"; };
 		A3E0A4DA2B9EC4D100FEBE24 /* AlbumDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailView.swift; sourceTree = "<group>"; };
 		A3E0A4DC2B9ECA5400FEBE24 /* SongsForAlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsForAlbumListView.swift; sourceTree = "<group>"; };
+		A3E0A4DE2B9EE7A200FEBE24 /* SongDetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SongDetails.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 		A3E0A4CD2B9E577F00FEBE24 /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				A3E0A4DE2B9EE7A200FEBE24 /* SongDetails.png */,
 				A3E0A4CF2B9E579800FEBE24 /* AlbumsList.png */,
 				A3E0A4CE2B9E579800FEBE24 /* MoviesList.png */,
 				A3E0A4D02B9E579800FEBE24 /* SearchAll.png */,
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3E0A4D12B9E579800FEBE24 /* MoviesList.png in Resources */,
+				A3E0A4DF2B9EE7A200FEBE24 /* SongDetails.png in Resources */,
 				A3E0A4D32B9E579800FEBE24 /* SearchAll.png in Resources */,
 				A3E0A4D22B9E579800FEBE24 /* AlbumsList.png in Resources */,
 				A3E0A45E2B9DC5D100FEBE24 /* Preview Assets.xcassets in Resources */,
